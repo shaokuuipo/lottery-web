@@ -133,7 +133,7 @@ let leftUsers = JSON.parse(localStorage.getItem("leftUsers")) || user;
 let awardList = JSON.parse(localStorage.getItem("awardList")) || {}
 
 
-//不能说的秘密
+//todo 从json文件读取数据
 const excludeUser = [["010", "010", "部门"]]
 /**
  * @description: 不能说的秘密
