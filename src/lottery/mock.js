@@ -5,27 +5,26 @@
  * @LastEditTime: 2022-06-21 18:34:34
  * @LastEditors: Gavin
  */
-const test = [
-  ["000016", "佐助", "技术部"]
-  , ["000022", "赵云", "技术部"]
-  , ["000019", "金角大王", "技术部"]
-  , ["000021", "行者孙", "技术部"]
-  , ["000004", "杨幂", "技术部"]
-  , ["000023", "金克丝", "技术部"]
-  , ["000017", "白骨精", "技术部"]
-  , ["000024", "蔚", "技术部"]
-  , ["000002", "柯镇恶", "技术部"]
-  , ["000008", "欧阳锋", "技术部"]
-  , ["000009", "周楠", "技术部"]
-  , ["000015", "卢本伟", "技术部"]
-  , ["000013", "鸣人", "技术部"]
-  , ["000003", "黄药师", "技术部"]
-  , ["000010", "艾薇儿", "技术部"]
-  , ["000011", "贾斯丁比伯", "技术部"]
-  , ["000020", "银角大王", "技术部"]
-  , ["000001", "周芷若", "技术部"]
-  , ["000005", "张无忌", "技术部"]
-]
+const test = [];
+let codeList = localStorage.getItem("codeList");
+if (codeList) {
+  var codeArr = codeList.split("+");
+  var startCode = codeArr[0] * 1;
+  var endCode = codeArr[1] * 1;
+  for (let i = 0; i < endCode - startCode; i++) {
+    let code = (startCode + i) + "";
+    code = code.padStart(3, '0');
+    test.push([code, code, "部门"]);
+  }
+  console.log(`codeList=${codeList}`);
+  console.log(test);
+} else {
+  for (let i = 1; i <= 300; i++) {
+    let code = i + '';
+    code = code.padStart(3, '0');
+    test.push([code, code, "部门"]);
+  }
+}
 
 function randomsort(a, b) {
   return Math.random() > .5 ? -1 : 1;
@@ -38,7 +37,7 @@ const user = test.sort(randomsort)
 /**
  * 卡片公司名称标识
  */
-const COMPANY = "Github";
+const COMPANY = "四川中衡";
 /**
  * 奖品设置
  * type: 唯一标识，0是默认特别奖的占位符，其它奖品不可使用
@@ -62,7 +61,7 @@ const prizes = [
     type: 1,
     count: 1,
     text: "一等奖 ",
-    title: "价值5999元",
+    title: "扫地机器人",
     img: "./img/huawei.png",
     enter: "1st-lottery",//抽奖进行时音乐
     awards: "1st-BJ-BGM",//颁奖音乐
@@ -74,7 +73,7 @@ const prizes = [
     type: 2,
     count: 2,
     text: "二等奖 ",
-    title: "价值3799元",
+    title: "摩非多功能锅",
     img: "./img/mbp.jpg",
     enter: "other-lottery",//抽奖进行时音乐
     awards: "other-BJ-BGM",//颁奖音乐
@@ -85,7 +84,7 @@ const prizes = [
     type: 3,
     count: 5,
     text: "三等奖  ",
-    title: "价值1200元",
+    title: "唱吧小巨蛋",
     img: "./img/ipad.jpg",
     enter: "other-lottery",//抽奖进行时音乐
     awards: "other-BJ-BGM",//颁奖音乐
@@ -96,7 +95,29 @@ const prizes = [
     type: 4,
     count: 10,
     text: "四等奖",
-    title: "价值300-600元不等",
+    title: "户外营地推车",
+    img: "./img/edifier.jpg",
+    enter: "other-lottery",//抽奖进行时音乐
+    awards: "other-BJ-BGM",//颁奖音乐
+    ROTATE_TIME: 10000,
+    circle: 8 * 2
+  },
+  {
+    type: 5,
+    count: 20,
+    text: "五等奖",
+    title: "无线充电音乐台灯",
+    img: "./img/edifier.jpg",
+    enter: "other-lottery",//抽奖进行时音乐
+    awards: "other-BJ-BGM",//颁奖音乐
+    ROTATE_TIME: 10000,
+    circle: 8 * 1
+  },
+  {
+    type: 6,
+    count: 30,
+    text: "六等奖",
+    title: "水果礼盒",
     img: "./img/edifier.jpg",
     enter: "other-lottery",//抽奖进行时音乐
     awards: "other-BJ-BGM",//颁奖音乐
@@ -113,7 +134,7 @@ let awardList = JSON.parse(localStorage.getItem("awardList")) || {}
 
 
 //不能说的秘密
-const excludeUser = [["000005", "张无忌", "技术部"]]
+const excludeUser = [["010", "010", "部门"]]
 /**
  * @description: 不能说的秘密
  * @param {*} nowItem 当前奖品
@@ -145,5 +166,5 @@ const height = window.innerWidth * .75 * .75
 /**
  * 一次抽取的奖品个数与prizes对应
  */
-const EACH_COUNT = [1, 1, 1, 5, 5];
+const EACH_COUNT = [1, 1, 1, 5, 5, 8, 10];
 export default { EACH_COUNT, prizes, COMPANY, user, luckyData, leftUsers, awardList, excludeUser, atmosphereGroupCard, background, setSecret, width, height, bgVideo }
