@@ -880,6 +880,7 @@ function lottery() {
 
     // console.log(currentLuckys);
     selectCard();
+    replaceMusic(currentPrize.awards);//颁奖音乐
   });
 }
 

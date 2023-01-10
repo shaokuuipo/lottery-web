@@ -39,6 +39,14 @@ module.exports = {
             loader: "postcss-loader"
           }
         ]
+      }, {
+        test: /\.(gif|svg|jpg|png)$/,
+        loader: "file-loader",
+        options: {
+          esModule: false, // 这里设置为false
+          name: '[name].[ext]',
+          limit: 10240
+        }
       }
     ]
   },

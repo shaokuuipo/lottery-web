@@ -8,12 +8,13 @@
 const test = [];
 let codeList = localStorage.getItem("codeList");
 if (codeList) {
-  var codeArr = codeList.split("+");
-  var startCode = codeArr[0] * 1;
-  var endCode = codeArr[1] * 1;
-  for (let i = 0; i < endCode - startCode; i++) {
+  let codeArr = codeList.split("+");
+  let startCode = codeArr[0] * 1;
+  let endCode = codeArr[1] * 1;
+  let endCodeLenth = codeArr[1].length;
+  for (let i = 0; i <= endCode - startCode; i++) {
     let code = (startCode + i) + "";
-    code = code.padStart(3, '0');
+    code = code.padStart(endCodeLenth, '0');
     test.push([code, code, "部门"]);
   }
   console.log(`codeList=${codeList}`);
@@ -60,9 +61,9 @@ const prizes = [
   {
     type: 1,
     count: 1,
-    text: "一等奖 ",
+    text: "一等奖",
     title: "扫地机器人",
-    img: "./img/huawei.png",
+    img: "./img/1111.png",
     enter: "1st-lottery",//抽奖进行时音乐
     awards: "1st-BJ-BGM",//颁奖音乐
     ROTATE_TIME: 20000,
@@ -72,9 +73,9 @@ const prizes = [
   {
     type: 2,
     count: 2,
-    text: "二等奖 ",
+    text: "二等奖",
     title: "摩非多功能锅",
-    img: "./img/mbp.jpg",
+    img: "./img/2222.png",
     enter: "other-lottery",//抽奖进行时音乐
     awards: "other-BJ-BGM",//颁奖音乐
     ROTATE_TIME: 20000,
@@ -83,9 +84,9 @@ const prizes = [
   {
     type: 3,
     count: 5,
-    text: "三等奖  ",
+    text: "三等奖",
     title: "唱吧小巨蛋",
-    img: "./img/ipad.jpg",
+    img: "./img/3333.png",
     enter: "other-lottery",//抽奖进行时音乐
     awards: "other-BJ-BGM",//颁奖音乐
     ROTATE_TIME: 10000,
@@ -96,7 +97,7 @@ const prizes = [
     count: 10,
     text: "四等奖",
     title: "户外营地推车",
-    img: "./img/edifier.jpg",
+    img: "./img/4444.png",
     enter: "other-lottery",//抽奖进行时音乐
     awards: "other-BJ-BGM",//颁奖音乐
     ROTATE_TIME: 10000,
@@ -107,7 +108,7 @@ const prizes = [
     count: 20,
     text: "五等奖",
     title: "无线充电音乐台灯",
-    img: "./img/edifier.jpg",
+    img: "./img/5555.png",
     enter: "other-lottery",//抽奖进行时音乐
     awards: "other-BJ-BGM",//颁奖音乐
     ROTATE_TIME: 10000,
@@ -118,7 +119,7 @@ const prizes = [
     count: 30,
     text: "六等奖",
     title: "水果礼盒",
-    img: "./img/edifier.jpg",
+    img: "./img/6666.png",
     enter: "other-lottery",//抽奖进行时音乐
     awards: "other-BJ-BGM",//颁奖音乐
     ROTATE_TIME: 10000,
@@ -158,7 +159,7 @@ const opacity = () => 0.3 || Math.random() * 0.7 + 0.25
 //气氛组卡片
 const atmosphereGroupCard = () => `rgba(${rgba},${opacity()})`
 //背景色
-const background = "url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01ef5e59c878d5a8012053f8c53ab7.jpg%401280w_1l_2o_100sh.jpg&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1645253836&t=e6413ccc6469632cf5476f5f6067e13b)"
+const background = "url(./img/bg.jfif)"
 //背景动态壁纸模式 不用时可以设置为null或者注释
 // const bgVideo="//game.gtimg.cn/images/lol/act/a20220121lunarpass/bg.mp4"
 const width = window.innerWidth * .75

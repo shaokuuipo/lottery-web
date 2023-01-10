@@ -5,7 +5,7 @@ body {
 }
 
 body {
-  background:url(https://corp-wecom-cdn.elcapp.cn/outlet_test/material/image/20220113/23221981195248510.png) no-repeat;
+  /* background:url(https://corp-wecom-cdn.elcapp.cn/outlet_test/material/image/20220113/23221981195248510.png) no-repeat; */
   background-size:100% 100%;
   /* background:url(https://corp-wecom-cdn.elcapp.cn/outlet_test/material/image/20220112/23138263213265879.png); */
   margin: 0;
@@ -168,7 +168,7 @@ video {
   /* background-color: #f9c05e !important; */
 
   /* background:url(https://corp-wecom-cdn.elcapp.cn/outlet_test/material/image/20220112/23143769899272448.png) no-repeat; */
-  background:url(https://corp-wecom-cdn.elcapp.cn/outlet_test/material/image/20220113/23202548765399331.png) no-repeat;
+  background:url(../img/rabbit.png) no-repeat;
 
 
   background-size:100% 100%;
@@ -563,7 +563,7 @@ video {
   color: #fff;
   cursor: pointer;
   /* background-color: rgba(253, 105, 0, 0.9); */
- background: url(https://corp-wecom-cdn.elcapp.cn/outlet_test/material/image/20220113/23229171906123500.svg) no-repeat;
+ background: url(../img/CD.svg) no-repeat;
  background-size: 100% 100%;
   /* border: 1px solid rgba(255, 255, 255, 0.5); */
 }
