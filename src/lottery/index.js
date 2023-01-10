@@ -19,6 +19,7 @@ import mockData from "./mock";
 const ROTATE_TIME = 1000;
 const ROTATE_LOOP = 1000;
 const BASE_HEIGHT = 1080;
+var cjjm = false;
 
 let TOTAL_CARDS,
   nowScenes,
@@ -123,6 +124,13 @@ function initAll() {
   // });
   initStyle();
   startMock();
+  document.addEventListener('keydown', function (event) {
+    if (event.key == " ") {
+      if (cjjm) {
+        btns.lottery.click();
+      }
+    }
+  });
 }
 function initStyle() {
   if (mockData.bgVideo) {
@@ -462,7 +470,7 @@ function bindEvent() {
         }
         replaceMusic(currentPrize.enter);
         mockData.setSecret(currentPrize, basicData);
-        
+
         resetCard().then((res) => {
           // 抽奖
           lottery();
@@ -534,12 +542,14 @@ function switchScreen(type) {
       btns.setCode.classList.remove("none");
       btns.lotteryBar.classList.add("none");
       transform(targets.table, 2000);
+      cjjm = false;
       break;
     default:
       btns.enter.classList.add("none");
       btns.setCode.classList.add("none");
       btns.lotteryBar.classList.remove("none");
       transform(targets.sphere, 2000);
+      cjjm = true;
       break;
   }
 }
