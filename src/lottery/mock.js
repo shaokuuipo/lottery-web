@@ -134,8 +134,9 @@ let leftUsers = JSON.parse(localStorage.getItem("leftUsers")) || user;
 let awardList = JSON.parse(localStorage.getItem("awardList")) || {}
 
 
-//todo 从json文件读取数据
-const excludeUser = [["010", "010", "部门"]]
+// TODO 从localStorage读取文件
+// const excludeUser = '[["010", "010", "部门"]]'
+const excludeUser = JSON.parse(localStorage.getItem("eu") || "[]");
 /**
  * @description: 不能说的秘密
  * @param {*} nowItem 当前奖品
