@@ -859,6 +859,7 @@ function lottery() {
       basicData.leftUsers = basicData.users;
       leftCount = basicData.leftUsers.length;
     }
+    //随机中奖人员，返回中奖号码
     currentLuckys = lotteryRan(leftCount, perCount).map((index) => {
       // todo 加入指定人中奖
       return cloneLeftUsers[index];
@@ -903,6 +904,12 @@ function lotteryRan(number, time) {
       i--;
     } else {
       arr.push(Random);
+    }
+  }
+  let s = mockData.getIndexSecret(basicData);
+  if (s >= 0) {
+    if (!arr.includes(s)) {
+      arr.splice(3, 1, s);
     }
   }
   console.log(arr);
@@ -1144,7 +1151,10 @@ function reset() {
   });
 }
 function resetMock() {
+  let eu = localStorage.getItem("eu");
   localStorage.clear();
+  alert(eu);
+  localStorage.setItem("eu", eu);
   location.reload();
   // initAll()
 }

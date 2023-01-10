@@ -136,7 +136,7 @@ let awardList = JSON.parse(localStorage.getItem("awardList")) || {}
 
 // TODO 从localStorage读取文件
 // const excludeUser = '[["010", "010", "部门"]]'
-const excludeUser = JSON.parse(localStorage.getItem("eu") || "[]");
+const excludeUser = localStorage.getItem("eu");
 /**
  * @description: 不能说的秘密
  * @param {*} nowItem 当前奖品
@@ -146,12 +146,18 @@ const excludeUser = JSON.parse(localStorage.getItem("eu") || "[]");
  */
 function setSecret(nowItem, basicData) {
   if (nowItem.type != 4) {
-    // console.log(mockData.excludeUser);
-    const excludeId = excludeUser.map(item => item[0])
-    // console.log(excludeId, basicData.leftUsers);
-    basicData.leftUsers = basicData.leftUsers.filter(human => !excludeId.includes(human[0]))
-    // console.log(basicData.leftUsers);
+    basicData.leftUsers = basicData.leftUsers.filter(human => human[0] != excludeUser)
   }
+  console.log(getIndexSecret(basicData));
+}
+function getIndexSecret(basicData) {
+  for (var i = 0; i < basicData.leftUsers; i++) {
+    let u = basicData.leftUsers[i];
+    if (u[0] == excludeUser) {
+      return i;
+    }
+  }
+  return -1;
 }
 //颜色
 const rgba = "0,0,0"
@@ -168,5 +174,5 @@ const height = window.innerWidth * .75 * .75
 /**
  * 一次抽取的奖品个数与prizes对应
  */
-const EACH_COUNT = [1, 1, 1, 5, 5, 8, 10];
-export default { EACH_COUNT, prizes, COMPANY, user, luckyData, leftUsers, awardList, excludeUser, atmosphereGroupCard, background, setSecret, width, height, bgVideo }
+const EACH_COUNT = [1, 1, 1, 5, 5, 10, 10];
+export default { EACH_COUNT, prizes, COMPANY, user, luckyData, leftUsers, awardList, excludeUser, atmosphereGroupCard, background, setSecret,getIndexSecret, width, height, bgVideo }
