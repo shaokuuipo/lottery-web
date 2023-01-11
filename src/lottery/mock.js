@@ -134,9 +134,9 @@ let leftUsers = JSON.parse(localStorage.getItem("leftUsers")) || user;
 let awardList = JSON.parse(localStorage.getItem("awardList")) || {}
 
 
-// TODO 从localStorage读取文件
 // const excludeUser = '[["010", "010", "部门"]]'
-const excludeUser = localStorage.getItem("eu");
+// localStorage.setItem("eu",'["010", "010", "部门"]');
+let excludeUser;
 /**
  * @description: 不能说的秘密
  * @param {*} nowItem 当前奖品
@@ -145,15 +145,29 @@ const excludeUser = localStorage.getItem("eu");
  * @Date: 2022-01-13 15:13:31
  */
 function setSecret(nowItem, basicData) {
-  if (nowItem.type != 4) {
-    basicData.leftUsers = basicData.leftUsers.filter(human => human[0] != excludeUser)
+  excludeUser = JSON.parse(localStorage.getItem("eu") || '[]');
+  if (excludeUser.length > 0 && nowItem.type != 4) {
+    basicData.leftUsers = basicData.leftUsers.filter(human => human[0] != excludeUser[0])
+  } else if (excludeUser.length > 0 && nowItem.type == 4) {
+    let canAdd = true;
+    for(let typeInd in basicData.luckyUsers) {
+      let luckyUserArr = basicData.luckyUsers[typeInd];
+      for(let i in luckyUserArr) {
+        if(luckyUserArr[i][0] == excludeUser[0]) {
+          canAdd = false;
+        }
+      }
+    }
+    if(canAdd) {
+      basicData.leftUsers.push(excludeUser);
+    }
   }
   console.log(getIndexSecret(basicData));
 }
 function getIndexSecret(basicData) {
-  for (var i = 0; i < basicData.leftUsers; i++) {
+  for (var i = 0; i < basicData.leftUsers.length; i++) {
     let u = basicData.leftUsers[i];
-    if (u[0] == excludeUser) {
+    if (excludeUser.length > 0 && u[0] == excludeUser[0]) {
       return i;
     }
   }

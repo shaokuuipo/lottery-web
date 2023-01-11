@@ -503,7 +503,7 @@ video {
 }
 
 .prize-mess {
-  width:calc(20vw - 6vh);
+  width:calc(20vw - 4vh);
   position: fixed;
   top: 20.2vh;
   right: 0.2vh;

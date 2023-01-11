@@ -162,7 +162,7 @@ function showPrizeList(currentPrizeIndex) {
   }
   let htmlCode = `<div class="prize-mess"><div  class="prize-shine">正在抽取</div>
   
-  <label id="prizeType" class="prize-shine">${currentPrize.text}</label><div id="prizeText" class="prize-shine">${currentPrize.title}</div><div><span  class="prize-shine">剩余</span><label id="prizeLeft" class="prize-shine">${currentPrize.count}</label><span  class="prize-shine">个</span></div></div><ul class="prize-list">`;
+  <label id="prizeType" class="prize-shine">${currentPrize.text}</label><span id="prizeText" class="prize-shine">${currentPrize.title}</span><div><span  class="prize-shine">剩余</span><label id="prizeLeft" class="prize-shine">${currentPrize.count}</label><span  class="prize-shine">个</span></div></div><ul class="prize-list">`;
   prizes.forEach(item => {
     if (item.type === defaultType) {
       return true;
