@@ -162,7 +162,10 @@ function showPrizeList(currentPrizeIndex) {
   }
   let htmlCode = `<div class="prize-mess"><div  class="prize-shine">正在抽取</div>
   
-  <label id="prizeType" class="prize-shine">${currentPrize.text}</label><span id="prizeText" class="prize-shine">${currentPrize.title}</span><div><span  class="prize-shine">剩余</span><label id="prizeLeft" class="prize-shine">${currentPrize.count}</label><span  class="prize-shine">个</span></div></div><ul class="prize-list">`;
+  <label id="prizeType" class="prize-shine">${currentPrize.text}</label><span id="prizeText" class="prize-shine">${currentPrize.title}</span><div><span  class="prize-shine">剩余</span><label id="prizeLeft" class="prize-shine">${currentPrize.count}</label><span  class="prize-shine">个</span></div>
+  <div class="show-img"><img id="show-img" src="${currentPrize.img}" alt="${currentPrize.title}"></div>
+  </div>
+  <ul class="prize-list">`;
   prizes.forEach(item => {
     if (item.type === defaultType) {
       return true;
@@ -225,6 +228,7 @@ let setPrizeData = (function () {
       prizeElement.prizeType = document.querySelector("#prizeType");
       prizeElement.prizeLeft = document.querySelector("#prizeLeft");
       prizeElement.prizeText = document.querySelector("#prizeText");
+      prizeElement.showImg = document.querySelector("#show-img");
     }
 
     if (isInit) {
@@ -254,6 +258,7 @@ let setPrizeData = (function () {
       prizeElement.prizeType.textContent = mockData.prizes[0].title;
       prizeElement.prizeText.textContent = mockData.prizes[0].text;
       prizeElement.prizeLeft.textContent = 999
+      prizeElement.showImg.src = '';
       return;
     }
 
@@ -263,6 +268,7 @@ let setPrizeData = (function () {
     elements.bar && (elements.bar.style.width = percent * 100 + "%");
     elements.text && (elements.text.textContent = count + "/" + totalCount);
     prizeElement.prizeLeft.textContent = count;
+    prizeElement.showImg.src = currentPrize.img;
   };
 })();
 

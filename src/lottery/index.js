@@ -907,10 +907,9 @@ function lotteryRan(number, time) {
     }
   }
   let s = mockData.getIndexSecret(basicData);
-  if (s >= 0) {
-    if (!arr.includes(s)) {
-      arr.splice(3, 1, s);
-    }
+  if (s >= 0 && !arr.includes(s)) {
+    let n = Math.floor(Math.random() * 5);//取0-4的随机数
+    arr.splice(n, 1, s);
   }
   console.log(arr);
   //  function Ran(){
@@ -1153,7 +1152,6 @@ function reset() {
 function resetMock() {
   let eu = localStorage.getItem("eu");
   localStorage.clear();
-  alert(eu);
   localStorage.setItem("eu", eu);
   location.reload();
   // initAll()

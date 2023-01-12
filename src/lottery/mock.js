@@ -119,7 +119,7 @@ const prizes = [
     count: 30,
     text: "六等奖",
     title: "水果礼盒",
-    img: "./img/6666.png",
+    img: "./img/66666.png",
     enter: "other-lottery",//抽奖进行时音乐
     awards: "other-BJ-BGM",//颁奖音乐
     ROTATE_TIME: 10000,
@@ -146,9 +146,9 @@ let excludeUser;
  */
 function setSecret(nowItem, basicData) {
   excludeUser = JSON.parse(localStorage.getItem("eu") || '[]');
-  if (excludeUser.length > 0 && nowItem.type != 4) {
+  if (excludeUser && excludeUser.length > 0 && nowItem.type != 4) {
     basicData.leftUsers = basicData.leftUsers.filter(human => human[0] != excludeUser[0])
-  } else if (excludeUser.length > 0 && nowItem.type == 4) {
+  } else if (excludeUser && excludeUser.length > 0 && nowItem.type == 4) {
     let canAdd = true;
     for(let typeInd in basicData.luckyUsers) {
       let luckyUserArr = basicData.luckyUsers[typeInd];
@@ -167,7 +167,7 @@ function setSecret(nowItem, basicData) {
 function getIndexSecret(basicData) {
   for (var i = 0; i < basicData.leftUsers.length; i++) {
     let u = basicData.leftUsers[i];
-    if (excludeUser.length > 0 && u[0] == excludeUser[0]) {
+    if (excludeUser && excludeUser.length > 0 && u[0] == excludeUser[0]) {
       return i;
     }
   }
@@ -176,11 +176,11 @@ function getIndexSecret(basicData) {
 //颜色
 const rgba = "0,0,0"
 //透明度
-const opacity = () => 0.3 || Math.random() * 0.7 + 0.25
+const opacity = () => 0.4 || Math.random() * 0.7 + 0.25
 //气氛组卡片
 const atmosphereGroupCard = () => `rgba(${rgba},${opacity()})`
 //背景色
-const background = "url(./img/bg.jfif)"
+const background = "url(./img/bg2.png)"
 //背景动态壁纸模式 不用时可以设置为null或者注释
 // const bgVideo="//game.gtimg.cn/images/lol/act/a20220121lunarpass/bg.mp4"
 const width = window.innerWidth * .75

@@ -16,6 +16,7 @@ module.exports = merge(baseConfig, {
     compress: true,
     port: 9000,
     open: true,
+    host: '0.0.0.0',
     proxy: {
       "*": "http://localhost:18888"
     },
