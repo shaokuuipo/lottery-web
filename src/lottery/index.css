@@ -92,7 +92,7 @@ a {
 .element .name {
   margin: 0 10px;
   position: absolute;
-  top: 52%;
+  top: 56%;
   left: 0;
   right: 0;
   font-size: 26px;
@@ -168,7 +168,7 @@ video {
   /* background-color: #f9c05e !important; */
 
   /* background:url(https://corp-wecom-cdn.elcapp.cn/outlet_test/material/image/20220112/23143769899272448.png) no-repeat; */
-  background:url(../img/rabbit.png) no-repeat;
+  background:url(../img/hongbao.png) no-repeat;
 
 
   background-size:100% 100%;
@@ -179,13 +179,17 @@ video {
 
 .prize .company,
 .prize .details,
-.prize .name,
 .highlight .company,
 .highlight .name,
 .highlight .details {
   /* color: rgba(255, 255, 255, 0.85); */
+  /* color: #c82121 */
   color: #c82121
 
+}
+
+.prize .name {
+  color: rgba(255,255,0, .8)
 }
 
 .dan-mu {

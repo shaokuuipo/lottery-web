@@ -744,7 +744,8 @@ function selectCard(duration = 600) {
   );
 
   selectedCardIndex.forEach((cardIndex, index) => {
-    changeCard(cardIndex, currentLuckys[index]);
+    let display = "none";
+    changeCard(cardIndex, currentLuckys[index], display);
     var object = threeDCards[cardIndex];
     new TWEEN.Tween(object.position)
       .to(
@@ -1053,10 +1054,10 @@ function random(num) {
 //     user[1]
 //   }</div><div class="details">${user[0]}<br/>${user[2] || "PSST"}</div>`;
 // }
-function changeCard(cardIndex, user) {
+function changeCard(cardIndex, user, display) {
   let card = threeDCards[cardIndex].element;
   const nameDom = `<div class="name">${user[1]}</div>`;
-  const companyDom = `<div class="company">${COMPANY}</div>`;
+  const companyDom = `<div class="company" style="display:${display||'block'}">${COMPANY}</div>`;
   card.innerHTML = nameDom + (COMPANY ? companyDom : "");
 }
 
