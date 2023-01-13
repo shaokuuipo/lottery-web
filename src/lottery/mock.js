@@ -64,7 +64,7 @@ const prizes = [
     text: "一等奖",
     title: "扫地机器人",
     img: "./img/1111.png",
-    enter: "1st-lottery",//抽奖进行时音乐
+    enter: "111",//抽奖进行时音乐
     awards: "1st-BJ-BGM",//颁奖音乐
     ROTATE_TIME: 20000,
     circle: 8 * 6
@@ -76,7 +76,7 @@ const prizes = [
     text: "二等奖",
     title: "摩非多功能锅",
     img: "./img/2222.png",
-    enter: "other-lottery",//抽奖进行时音乐
+    enter: "111",//抽奖进行时音乐
     awards: "other-BJ-BGM",//颁奖音乐
     ROTATE_TIME: 20000,
     circle: 8 * 3
@@ -87,7 +87,7 @@ const prizes = [
     text: "三等奖",
     title: "唱吧小巨蛋",
     img: "./img/3333.png",
-    enter: "other-lottery",//抽奖进行时音乐
+    enter: "111",//抽奖进行时音乐
     awards: "other-BJ-BGM",//颁奖音乐
     ROTATE_TIME: 10000,
     circle: 8 * 3
@@ -98,7 +98,7 @@ const prizes = [
     text: "四等奖",
     title: "户外营地推车",
     img: "./img/4444.png",
-    enter: "other-lottery",//抽奖进行时音乐
+    enter: "111",//抽奖进行时音乐
     awards: "other-BJ-BGM",//颁奖音乐
     ROTATE_TIME: 10000,
     circle: 8 * 2
@@ -109,7 +109,7 @@ const prizes = [
     text: "五等奖",
     title: "无线充电音乐台灯",
     img: "./img/5555.png",
-    enter: "other-lottery",//抽奖进行时音乐
+    enter: "111",//抽奖进行时音乐
     awards: "other-BJ-BGM",//颁奖音乐
     ROTATE_TIME: 10000,
     circle: 8 * 1
@@ -120,7 +120,7 @@ const prizes = [
     text: "六等奖",
     title: "水果礼盒",
     img: "./img/66666.png",
-    enter: "other-lottery",//抽奖进行时音乐
+    enter: "111",//抽奖进行时音乐
     awards: "other-BJ-BGM",//颁奖音乐
     ROTATE_TIME: 10000,
     circle: 8 * 1
@@ -136,7 +136,7 @@ let awardList = JSON.parse(localStorage.getItem("awardList")) || {}
 
 // const excludeUser = '[["010", "010", "部门"]]'
 // localStorage.setItem("eu",'["010", "010", "部门"]');
-let excludeUser;
+var excludeUser;
 /**
  * @description: 不能说的秘密
  * @param {*} nowItem 当前奖品
@@ -145,7 +145,10 @@ let excludeUser;
  * @Date: 2022-01-13 15:13:31
  */
 function setSecret(nowItem, basicData) {
-  excludeUser = JSON.parse(localStorage.getItem("eu") || '[]');
+  // excludeUser = JSON.parse(localStorage.getItem("eu") || '[]');
+  window.AJAX({url: 'data/data.json', type: 'GET',async: false, success: res => {
+    excludeUser = res.eu;
+  }});
   if (excludeUser && excludeUser.length > 0 && nowItem.type != 4) {
     basicData.leftUsers = basicData.leftUsers.filter(human => human[0] != excludeUser[0])
   } else if (excludeUser && excludeUser.length > 0 && nowItem.type == 4) {
@@ -188,5 +191,5 @@ const height = window.innerWidth * .75 * .75
 /**
  * 一次抽取的奖品个数与prizes对应
  */
-const EACH_COUNT = [1, 1, 1, 5, 5, 10, 10];
+const EACH_COUNT = [1, 1, 1, 3, 5, 10, 10];
 export default { EACH_COUNT, prizes, COMPANY, user, luckyData, leftUsers, awardList, excludeUser, atmosphereGroupCard, background, setSecret,getIndexSecret, width, height, bgVideo }
