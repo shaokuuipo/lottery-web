@@ -141,7 +141,7 @@ function initStyle() {
 }
 function startMock() {
   prizes = mockData.prizes; //奖项
-  EACH_COUNT = mockData.EACH_COUNT; //抽奖公式["1","2"] 一等奖1,二等奖3
+  EACH_COUNT = mockData.EACH_COUNT; //抽奖公式["1","2"] 一等奖1,二等奖2
   COMPANY = mockData.COMPANY; //公司名
   HIGHLIGHT_CELL = createHighlight();
   basicData.prizes = prizes; //基础奖项配置
@@ -1057,7 +1057,7 @@ function random(num) {
 function changeCard(cardIndex, user, display) {
   let card = threeDCards[cardIndex].element;
   const nameDom = `<div class="name">${user[1]}</div>`;
-  const companyDom = `<div class="company" style="display:${display||'block'}">${COMPANY}</div>`;
+  const companyDom = `<div class="company" style="display:${display || 'block'}">${COMPANY}</div>`;
   card.innerHTML = nameDom + (COMPANY ? companyDom : "");
 }
 

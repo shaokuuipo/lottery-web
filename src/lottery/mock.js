@@ -61,9 +61,9 @@ const prizes = [
   {
     type: 1,
     count: 1,
-    text: "一等奖",
-    title: "扫地机器人",
-    img: "./img/1111.png",
+    text: "特别奖",
+    title: "蝴蝶乒乓拍-泰克西姆款",
+    img: "./img/1.jpg",
     enter: "111",//抽奖进行时音乐
     awards: "1st-BJ-BGM",//颁奖音乐
     ROTATE_TIME: 20000,
@@ -72,10 +72,10 @@ const prizes = [
   },
   {
     type: 2,
-    count: 2,
-    text: "二等奖",
-    title: "摩非多功能锅",
-    img: "./img/2222.png",
+    count: 1,
+    text: "一等奖",
+    title: "添可无线智能洗地机",
+    img: "./img/2.png",
     enter: "111",//抽奖进行时音乐
     awards: "other-BJ-BGM",//颁奖音乐
     ROTATE_TIME: 20000,
@@ -83,10 +83,10 @@ const prizes = [
   },
   {
     type: 3,
-    count: 5,
-    text: "三等奖",
-    title: "唱吧小巨蛋",
-    img: "./img/3333.png",
+    count: 2,
+    text: "二等奖",
+    title: "骆驼户外露营帐篷、天幕",
+    img: "./img/3.jpg",
     enter: "111",//抽奖进行时音乐
     awards: "other-BJ-BGM",//颁奖音乐
     ROTATE_TIME: 10000,
@@ -94,10 +94,10 @@ const prizes = [
   },
   {
     type: 4,
-    count: 10,
-    text: "四等奖",
-    title: "户外营地推车",
-    img: "./img/4444.png",
+    count: 5,
+    text: "三等奖",
+    title: "美旅20寸行李箱",
+    img: "./img/4.png",
     enter: "111",//抽奖进行时音乐
     awards: "other-BJ-BGM",//颁奖音乐
     ROTATE_TIME: 10000,
@@ -105,10 +105,10 @@ const prizes = [
   },
   {
     type: 5,
-    count: 20,
-    text: "五等奖",
-    title: "无线充电音乐台灯",
-    img: "./img/5555.png",
+    count: 8,
+    text: "四等奖",
+    title: "美的空气炸锅",
+    img: "./img/5.png",
     enter: "111",//抽奖进行时音乐
     awards: "other-BJ-BGM",//颁奖音乐
     ROTATE_TIME: 10000,
@@ -116,10 +116,10 @@ const prizes = [
   },
   {
     type: 6,
-    count: 30,
-    text: "六等奖",
-    title: "水果礼盒",
-    img: "./img/66666.png",
+    count: 12,
+    text: "五等奖",
+    title: "养生壶套装",
+    img: "./img/6.png",
     enter: "111",//抽奖进行时音乐
     awards: "other-BJ-BGM",//颁奖音乐
     ROTATE_TIME: 10000,
@@ -183,7 +183,7 @@ const opacity = () => 0.4 || Math.random() * 0.7 + 0.25
 //气氛组卡片
 const atmosphereGroupCard = () => `rgba(${rgba},${opacity()})`
 //背景色
-const background = "url(./img/bg2.png)"
+const background = "url(./img/bg3.png)"
 //背景动态壁纸模式 不用时可以设置为null或者注释
 // const bgVideo="//game.gtimg.cn/images/lol/act/a20220121lunarpass/bg.mp4"
 const width = window.innerWidth * .75
@@ -191,5 +191,5 @@ const height = window.innerWidth * .75 * .75
 /**
  * 一次抽取的奖品个数与prizes对应
  */
-const EACH_COUNT = [1, 1, 1, 3, 5, 10, 10];
+const EACH_COUNT = [1, 1, 1, 1, 3, 4, 6];
 export default { EACH_COUNT, prizes, COMPANY, user, luckyData, leftUsers, awardList, excludeUser, atmosphereGroupCard, background, setSecret,getIndexSecret, width, height, bgVideo }
