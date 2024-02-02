@@ -61,18 +61,6 @@ const prizes = [
   {
     type: 1,
     count: 1,
-    text: "特别奖",
-    title: "蝴蝶乒乓拍-泰克西姆款",
-    img: "./img/1.jpg",
-    enter: "111",//抽奖进行时音乐
-    awards: "1st-BJ-BGM",//颁奖音乐
-    ROTATE_TIME: 20000,
-    circle: 8 * 6
-
-  },
-  {
-    type: 2,
-    count: 1,
     text: "一等奖",
     title: "添可无线智能洗地机",
     img: "./img/2.png",
@@ -82,7 +70,7 @@ const prizes = [
     circle: 8 * 3
   },
   {
-    type: 3,
+    type: 2,
     count: 2,
     text: "二等奖",
     title: "骆驼户外露营帐篷、天幕",
@@ -93,7 +81,7 @@ const prizes = [
     circle: 8 * 3
   },
   {
-    type: 4,
+    type: 3,
     count: 5,
     text: "三等奖",
     title: "美旅20寸行李箱",
@@ -104,7 +92,7 @@ const prizes = [
     circle: 8 * 2
   },
   {
-    type: 5,
+    type: 4,
     count: 8,
     text: "四等奖",
     title: "美的空气炸锅",
@@ -115,7 +103,7 @@ const prizes = [
     circle: 8 * 1
   },
   {
-    type: 6,
+    type: 5,
     count: 12,
     text: "五等奖",
     title: "养生壶套装",
@@ -124,8 +112,18 @@ const prizes = [
     awards: "other-BJ-BGM",//颁奖音乐
     ROTATE_TIME: 10000,
     circle: 8 * 1
+  },
+  {
+    type: 6,
+    count: 1,
+    text: "特别奖",
+    title: "蝴蝶乒乓拍-泰克西姆款",
+    img: "./img/1.jpg",
+    enter: "111",//抽奖进行时音乐
+    awards: "1st-BJ-BGM",//颁奖音乐
+    ROTATE_TIME: 20000,
+    circle: 8 * 6
   }
-
 ];
 let luckyData = JSON.parse(localStorage.getItem("luckyData")) || {};
 
@@ -191,5 +189,5 @@ const height = window.innerWidth * .75 * .75
 /**
  * 一次抽取的奖品个数与prizes对应
  */
-const EACH_COUNT = [1, 1, 1, 1, 3, 4, 6];
+const EACH_COUNT = [1, 1, 1, 3, 4, 6, 1];
 export default { EACH_COUNT, prizes, COMPANY, user, luckyData, leftUsers, awardList, excludeUser, atmosphereGroupCard, background, setSecret,getIndexSecret, width, height, bgVideo }
