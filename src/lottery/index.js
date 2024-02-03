@@ -415,7 +415,7 @@ function bindEvent() {
         break;
       // 进入抽奖
       case "awards":
-        replaceMusic(currentPrize.awards);
+        // replaceMusic(currentPrize.awards);
 
         break;
       case "enter":
@@ -862,7 +862,7 @@ function lottery() {
     }
     //随机中奖人员，返回中奖号码
     currentLuckys = lotteryRan(leftCount, perCount).map((index) => {
-      // todo 加入指定人中奖
+      // somebody win
       return cloneLeftUsers[index];
     });
     console.log(currentLuckys);
@@ -892,7 +892,10 @@ function lottery() {
 
     // console.log(currentLuckys);
     selectCard();
-    replaceMusic(currentPrize.awards);//颁奖音乐
+    //暂停音乐
+    musicBox.click();
+
+    // replaceMusic(currentPrize.awards);//颁奖音乐
   });
 }
 
@@ -1183,7 +1186,7 @@ function createHighlight() {
  * @Date: 2022-01-19 14:46:05
  */
 function replaceMusic(scenes) {
-  if (nowScenes == scenes) return;
+  // if (nowScenes == scenes) return;
   let music = document.querySelector("#music");
   music.src = `./data/${scenes}.m4a`;
   musicBox.click();
@@ -1234,8 +1237,8 @@ window.onload = function () {
     false
   );
 
-  setTimeout(function () {
-    replaceMusic("enter-BGM");
-    // musicBox.click();
-  }, 2000);
+  // setTimeout(function () {
+  //   replaceMusic("enter-BGM");
+  //   // musicBox.click();
+  // }, 2000);
 };
